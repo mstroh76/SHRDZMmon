@@ -1,0 +1,16 @@
+[Unit]
+Description=SHRDZM Power Display 
+After=network-online.target
+
+[Service]
+Type=simple
+User=pi
+Nice=19
+WorkingDirectory=/home/pi/
+ExecStart=/usr/local/bin/SHRDZM.sh
+ExecStop=/usr/local/bin/2display stop
+StandardOutput=null
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
